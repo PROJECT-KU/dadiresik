@@ -24,7 +24,7 @@
                         <div class="col-12">
                             <div class="callout callout-info">
                                 <h5 style="color: red;"><i class="fas fa-info"></i> Note:</h5>
-                                Jika Pesanan Anda Sudah Benar maka Bisa Pilih Tombol <strong>Submit Payment</strong> Untuk Mengupload Bukti Pembayaran.
+
                             </div>
 
 
@@ -129,7 +129,7 @@
                                 <div class="row">
                                     <!-- accepted payments column -->
                                     <div class="col-6">
-                                      
+
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-6">
@@ -155,10 +155,10 @@
                                             </table>
                                         </div>
                                         <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
-                                                        </label>
-                                                    </div>
+                                            <label>
+                                                <input type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
+                                            </label>
+                                        </div>
                                     </div>
                                     <!-- /.col -->
                                 </div>
