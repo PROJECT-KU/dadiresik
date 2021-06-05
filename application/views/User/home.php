@@ -19,19 +19,47 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+            <!-- ===================== ALERT AUTO CLOSE ============================== -->
 
+            <head>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                <style type="text/css">
+                    body {
+                        padding: 5px;
+                        margin: 200px:
+                    }
+                </style>
+            </head>
+            <div class="alert alert-success" role="alert">
+                <h5><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Selamat Datang Member <strong><?= $user['nama']; ?></a></strong></h5>
+            </div>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+            <script type="text/javascript">
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(100, 0).slideUp(500, function() {
+                        $(this).remove();
+                    });
+                }, 5000);
+            </script>
+            <!-- END -->
             <!-- Main content -->
+
             <section class="content">
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
+                        <!-- ========================== JUMLAH PRODUK ======================= -->
+                        <?php
+                        $query = $this->db->query("SELECT * FROM tb_barang");
+                        $jml = $query->num_rows();
+                        ?>
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
-
-                                    <p>New Orders</p>
+                                    <h3><?= number_format($jml); ?></h3>
+                                    <p>Total Produk</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -39,29 +67,17 @@
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
+                        <!-- END -->
+                        <!-- ================ JUMLAH USER ============ -->
+                        <?php
+                        $query = $this->db->query("SELECT * FROM user");
+                        $jml = $query->num_rows();
+                        ?>
                         <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>44</h3>
-
-                                    <p>User Registrations</p>
+                                    <h3> <?= number_format($jml); ?></h3>
+                                    <p>Total User Terdaftar</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
@@ -69,14 +85,35 @@
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
+                        <!-- END -->
+                        <!-- ============================= TOTAL PENGUNJUNG 1 BULAN ======================== -->
+                        <?php
+                        $query = $this->db->query("SELECT * FROM tbl_pengunjung WHERE DATE_FORMAT(pengunjung_tanggal,'%m%y')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%m%y')");
+                        $jml = $query->num_rows();
+                        ?>
                         <div class="col-lg-3 col-6">
-                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3> <?php echo number_format($jml); ?></h3>
+                                    <p>Total Pengunjung Bulan Ini</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- END -->
+                        <!-- ============================== TOTAL PENGUNJUNG HARI INI ===================================== -->
+                        <?php
+                        $query = $this->db->query("SELECT * FROM tbl_pengunjung WHERE DATE_FORMAT(pengunjung_tanggal,'%m%y')=DATE_FORMAT(CURDATE(),'%m%y')");
+                        $jml = $query->num_rows();
+                        ?>
+                        <div class="col-lg-3 col-6">
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
+                                    <h3><?php echo number_format($jml); ?></h3>
+                                    <p>Total Pengunjung Hari Ini</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
@@ -84,7 +121,7 @@
                                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
+                        <!-- END -->
                     </div>
                     <!-- /.row -->
                     <!-- Main row -->

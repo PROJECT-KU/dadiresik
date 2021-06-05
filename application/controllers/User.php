@@ -19,7 +19,7 @@ class User extends CI_Controller
         $this->load->view('user/template/navbar');
         $this->load->view('user/home');
         //$this->load->view('public/template/end_content');
-        $this->load->view('user/template/footer');
+        //$this->load->view('user/template/footer');
     }
 
     public function editprofile()
