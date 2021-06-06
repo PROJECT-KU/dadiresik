@@ -21,6 +21,27 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <!-- ===================== ALERT AUTO CLOSE ============================== -->
+                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                        <style type="text/css">
+                            body {
+                                padding: 5px;
+                            }
+                        </style>
+                        <div role="alert">
+                            <h5><?= $this->session->flashdata('pesan'); ?></a></strong></h5>
+                        </div>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                        <script type="text/javascript">
+                            window.setTimeout(function() {
+                                $(".alert").fadeTo(100, 0).slideUp(500, function() {
+                                    $(this).remove();
+                                });
+                            }, 5000);
+                        </script>
+                        <!-- END -->
+
                         <div class="col-12">
                             <div class="callout callout-info">
                                 <h5 style="color: red;"><i class="fas fa-info"></i> Note:</h5>

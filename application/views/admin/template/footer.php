@@ -1,11 +1,11 @@
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <!--<footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Dickyfli Perdana Putra <?= date('Y'); ?></span>
                     </div>
                 </div>
-            </footer>
+            </footer>-->
             <!-- End of Footer -->
 
             </div>
@@ -39,8 +39,21 @@
             </div>
 
             <!-- Bootstrap core JavaScript-->
-            <script src="<?= base_url('assets/sb/'); ?>vendor/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+            <!--<script src="<?= base_url('assets/sb/'); ?>vendor/jquery/jquery.min.js"></script>-->
             <script src="<?= base_url('assets/sb/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#example').DataTable();
+                });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#inbox').DataTable();
+                });
+            </script>
 
             <!-- Core plugin JavaScript-->
             <script src="<?= base_url('assets/sb/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -1,69 +1,78 @@
-<!-- TEAM -->
-<div class="site-section border-bottom" style="margin-top: 100px;">
+<section class="contact" style="margin-top: 180px; margin-bottom:50px;">
     <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="section_tittle text-center">
-                <h2>TEAM</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-title">
+                    <h2>Hubungi Kami</h2>
+                </div>
             </div>
         </div>
-        <div class="slide-one-item home-slider owl-carousel">
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="assets/img/produkdantesti/images/person_1.jpg" alt="Image" class="img-fluid mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-form">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 contact-option">
+                            <div class="contact-option_rsp">
+                                <h3>Tinggalkan Pesan</h3>
+                                <form action="<?php echo site_url('contact/kirim_pesan'); ?>" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name" name="xnama" required>
+                                    </div>
+                                    <!-- // end .form-group -->
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email" name="xemail" required>
+                                    </div>
+                                    <!-- // end .form-group -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Phone" name="xphone" required>
+                                    </div>
+                                    <!-- // end .form-group -->
+                                    <div class="form-group">
+                                        <textarea placeholder="Message" class="form-control" name="xmessage" required rows="5"></textarea>
+                                    </div>
+                                    <!-- // end .form-group -->
+                                    <button type="submit" class="btn btn-default btn-submit">SUBMIT</button>
+                                    <div><?php echo $this->session->flashdata('msg'); ?></div>
+                                    <!-- // end #js-contact-result -->
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="contact-address">
+                                <h3>Lokasi</h3>
+                                <div class="contact-details">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <h6>Alamat</h6>
+                                    <p>Jl. Bangunsari, Bangunkerto, Turi
+                                        <br> Sleman, Yogyakarta
+                                        <br> 55551 Indonesia
+                                    </p>
+                                </div>
+                                <br>
+                                <div class="contact-details">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <h6>Email</h6>
+                                    <p>info@rumahscopus.com
 
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                        <p class="author"> &mdash; DICKYFLY PERDANA &mdash;</p>
-                    </blockquote>
+                                    </p>
+                                </div>
+                                <br>
+                                <div class="contact-details">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <h6>Telepon dan WhatsApp</h6>
+                                    <p>(+62) 812-2688-32808</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="assets/img/produkdantesti/images/person_2.jpg" alt="Image" class="img-fluid mb-3">
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                        <p class="author"> &mdash; BERTO JUNI &mdash;</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="assets/img/produkdantesti/images/person_4.jpg" alt="Image" class="img-fluid mb-3">
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                        <p class="author"> &mdash; INOSENSIA &mdash;</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="assets/img/produkdantesti/images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                        <p class="author"> &mdash; BAYU LUTHFI &mdash;</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="assets/img/produkdantesti/images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                        <p class="author"> &mdash; MUHAMMAD ALDI &mdash;</p>
-                    </blockquote>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="contact-center">OR</p>
             </div>
         </div>
     </div>
-</div>
-<!-- end testimoni -->
+</section>
+<!--//END  ABOUT IMAGE -->

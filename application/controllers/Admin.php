@@ -6,6 +6,7 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('m_kontak');
         is_logged_in();
     }
     public function index()
@@ -128,7 +129,7 @@ class Admin extends CI_Controller
         $this->db->set('status', $pass);
         $this->db->where('id_pemesanan', $id);
         $this->db->update('pemesanan');
-        redirect ('admin/invoices');
+        redirect('admin/invoices');
     }
     public function cancel($id)
     {
@@ -137,6 +138,27 @@ class Admin extends CI_Controller
         $this->db->set('status', $pass);
         $this->db->where('id_pemesanan', $id);
         $this->db->update('pemesanan');
-        redirect ('admin/invoices');
+        redirect('admin/invoices');
+    }
+
+    function inbox()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Inbox';
+        $this->m_kontak->update_status_kontak();
+        $data['data'] = $this->m_kontak->get_all_inbox();
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/template/topbar', $data);
+        $this->load->view('admin/inbox', $data);
+        $this->load->view('admin/template/footer');
+    }
+
+    function hapus_inbox()
+    {
+        $kode = $this->input->post('kode');
+        $this->m_kontak->hapus_kontak($kode);
+        echo $this->session->set_flashdata('msg', 'success-hapus');
+        redirect('admin/inbox');
     }
 }

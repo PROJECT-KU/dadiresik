@@ -25,6 +25,7 @@ class Formpesan extends CI_Controller
         $this->load->view('user/template/head', $data);
         $this->load->view('user/template/navbar');
         $this->load->view('user/formpesan', $data);
+
         //$this->load->view('public/template/isipesanan');
         //$this->load->view('public/template/end_content');
         //$this->load->view('public/template/footer');
@@ -108,7 +109,7 @@ class Formpesan extends CI_Controller
             'status' => 0,
         ];
         $this->db->insert('pemesanan', $data);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Barang Telah berhasil ditambah</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Pesanan Anda Telah Berhasil, Silahkan Tunggu Konfirmasi Dari Admin.</div>');
         redirect('invoice');
     }
 }

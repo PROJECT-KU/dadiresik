@@ -13,16 +13,16 @@
                             <?= $this->session->flashdata('pesan');  ?>
 
 
-                            <a href="<?= base_url('barang/tambahbarang') ?>" class="btn btn-primary">Tambah Barang</a>
+                            <a href="<?= base_url('barang/tambahbarang') ?>" class="btn btn-primary" style="margin-bottom: 10px;">Tambah Barang</a>
 
-                            <table class="table table-hover mt-3">
+                            <table id="inbox" class="table table-hover mt-3">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Nama Barang</th>
                                         <th scope="col">Keterangan</th>
                                         <th scope="col">Kategori</th>
-                                        <th scope="col">Harga</th>                            
+                                        <th scope="col">Harga</th>
                                         <th scope="col">Gambar</th>
                                         <th scope="col">Action</th>
                                     </tr>

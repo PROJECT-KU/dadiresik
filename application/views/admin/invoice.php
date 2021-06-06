@@ -12,7 +12,7 @@
                             <?php endif; ?>
                             <?= $this->session->flashdata('pesan');  ?>
 
-                            <table class="table table-hover mt-3">
+                            <table id="example" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -41,10 +41,10 @@
                                                 <td><span class="badge badge-pill badge-danger">Batal</span></td>
                                             <?php else : ?>
                                                 <td><span class="badge badge-pill badge-warning">Belum Bayar</span></td>
-                                                <?php endif; ?>
+                                            <?php endif; ?>
                                             <td>
-                                            
-                                                <a href="<?= base_url('admin/lunas/') ?><?= $psn['id_pemesanan'] ?>" class="badge badge-primary" >Lunas</a>
+
+                                                <a href="<?= base_url('admin/lunas/') ?><?= $psn['id_pemesanan'] ?>" class="badge badge-primary">Lunas</a>
                                                 <a href="<?= base_url('admin/cancel/') ?><?= $psn['id_pemesanan'] ?>" class="badge badge-danger">Cancel</a>
                                             </td>
                                         </tr>

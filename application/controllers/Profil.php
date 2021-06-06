@@ -58,30 +58,30 @@ class Profil extends CI_Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=". $this->input->post('kabupaten') ."&province=". $this->input->post('provinsi') ,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => array(
-        "key: ac350718e0c5293b822c7fcc032a813f"
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=" . $this->input->post('kabupaten') . "&province=" . $this->input->post('provinsi'),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "key: ac350718e0c5293b822c7fcc032a813f"
             ),
         ));
-    
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    
-    curl_close($curl);
-    
-    if ($err) {
-      echo "cURL Error #:" . $err;
-    } else {
-        $hasil = json_decode($response, true);
-        if ($hasil['rajaongkir']['status']['code'] == 200) {
-            $prov = $hasil['rajaongkir']['results']['province'];
-            $kab = $hasil['rajaongkir']['results']['city_name'];
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $hasil = json_decode($response, true);
+            if ($hasil['rajaongkir']['status']['code'] == 200) {
+                $prov = $hasil['rajaongkir']['results']['province'];
+                $kab = $hasil['rajaongkir']['results']['city_name'];
             }
         }
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -122,7 +122,7 @@ class Profil extends CI_Controller
         $this->db->set('alamat', $alamat);
         $this->db->where('email', $email);
         $this->db->update('user');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Selamat Profile anda telah berhasil diubah.</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Data Profil Anda Telah Di Perbarui.</div>');
         redirect('profil');
     }
     public function editpassword()
@@ -133,6 +133,7 @@ class Profil extends CI_Controller
         $this->db->set('password', $pass);
         $this->db->where('email', $email);
         $this->db->update('user');
-        redirect ('profil');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Password Anda Telah Di Perbarui.</div>');
+        redirect('profil');
     }
 }

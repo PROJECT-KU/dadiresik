@@ -20,16 +20,12 @@
             </div>
             <!-- /.content-header -->
             <!-- ===================== ALERT AUTO CLOSE ============================== -->
-
-            <head>
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-                <style type="text/css">
-                    body {
-                        padding: 5px;
-                        margin: 200px:
-                    }
-                </style>
-            </head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <style type="text/css">
+                body {
+                    padding: 5px;
+                }
+            </style>
             <div class="alert alert-success" role="alert">
                 <h5><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Selamat Datang Member <strong><?= $user['nama']; ?></a></strong></h5>
             </div>
@@ -123,15 +119,68 @@
                         </div>
                         <!-- END -->
                     </div>
-                    <!-- /.row -->
-                    <!-- Main row -->
-
-                    <!-- /.row (main row) -->
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
-            <!-- /.content -->
-        </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#confirm" data-toggle="tab">Terkonfirmasi</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- NOTE -->
+                    <div class="card-body">
+                        <div class="tab-content">
 
+                            <!-- END NOTE -->
+                            <!-- RESET PASSWORD -->
+                            <div class="active tab-pane" id="confirm">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-12 table-responsive">
+                                            <table class="table table-striped">
+                                                <form action="<?= base_url('formpesan/checkout') ?>" method="POST">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>ID Order</th>
+                                                            <th>Barang</th>
+                                                            <th>Harga</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $pemesanan = $this->db->get_where('pemesanan', ['email' => $this->session->userdata('email')])->result_array();
+                                                        $no = 0;
+                                                        foreach ($pemesanan as $p) :
+                                                            if ($p['status'] == 1) :
+                                                                $no++;
+                                                        ?>
+                                                                <tr>
+                                                                    <td><?= $no ?></td>
+                                                                    <td> <?= $p['id_pemesanan'] ?></td>
+                                                                    <td> <?= $p['nama_brg'] ?></td>
+                                                                    <td> <?= $p['harga'] ?></td>
+                                                                    <?php if ($p['status'] == 1) : ?>
+                                                                        <td> <span class="badge bg-success">Confirm</span></td>
+                                                                    <?php else : ?>
+                                                                        <td> <span class="badge bg-warning text-dark">Pending</span></td>
+                                                                    <?php endif; ?>
+                                                                </tr>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- ./wrapper -->
 </body>

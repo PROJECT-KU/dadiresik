@@ -67,7 +67,7 @@
                                                         </div>
                                                     </div>
                                                     <center>
-                                                        <a href="<?= base_url('pesan/product/' . $brg['id_brg']); ?>" style="font-size: medium;" type="submit" class="btn btn-sm btn-primary badge  badge-success">Pesan Sekarang</a>
+                                                        <a href="<?= base_url('pesan/product/' . $brg['id_brg']); ?>" style="font-size: medium; margin-top:10px;" type="submit" class="btn btn-sm btn-primary badge  badge-success">Pesan Sekarang</a>
                                                     </center>
                                                 </div>
                                             </div>

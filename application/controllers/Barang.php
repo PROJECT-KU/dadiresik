@@ -64,7 +64,7 @@ class Barang extends CI_Controller
             $this->load->view('admin/template/footer');
         } else {
             $data = [
-                'id_brg' => random_string('alnum',5),
+                'id_brg' => random_string('alnum', 5),
                 'nama_brg' => $this->input->post('nama_brg'),
                 'keterangan' => $this->input->post('keterangan'),
                 'kategori' => $this->input->post('kategori'),

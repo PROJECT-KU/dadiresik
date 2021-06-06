@@ -108,9 +108,28 @@ if ($err) {
                                         <!-- RESET PASSWORD -->
                                         <div class="active tab-pane" id="timeline">
                                             <div>
-                                            
+
                                                 <form method="POST" action="<?= base_url('profil/editpassword') ?>">
-                                                
+                                                    <!-- ===================== ALERT AUTO CLOSE ============================== -->
+                                                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                                                    <style type="text/css">
+                                                        body {
+                                                            padding: 5px;
+                                                        }
+                                                    </style>
+                                                    <div role="alert">
+                                                        <h5><?= $this->session->flashdata('pesan'); ?></a></strong></h5>
+                                                    </div>
+                                                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                                                    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                                                    <script type="text/javascript">
+                                                        window.setTimeout(function() {
+                                                            $(".alert").fadeTo(100, 0).slideUp(500, function() {
+                                                                $(this).remove();
+                                                            });
+                                                        }, 5000);
+                                                    </script>
+                                                    <!-- END -->
                                                     <div class="mb-3">
                                                         <label for="password" class="form-label">Password Baru</label>
                                                         <input type="text" class="form-control" name="password" id="password" aria-describedby="password" required>
@@ -139,7 +158,26 @@ if ($err) {
 
                                         <div class="tab-pane" id="settings">
                                             <?php echo form_open_multipart('profil/editprofile'); ?>
-
+                                            <!-- ===================== ALERT AUTO CLOSE ============================== -->
+                                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                                            <style type="text/css">
+                                                body {
+                                                    padding: 5px;
+                                                }
+                                            </style>
+                                            <div role="alert">
+                                                <h5><?= $this->session->flashdata('pesan'); ?></a></strong></h5>
+                                            </div>
+                                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                                            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                                            <script type="text/javascript">
+                                                window.setTimeout(function() {
+                                                    $(".alert").fadeTo(100, 0).slideUp(500, function() {
+                                                        $(this).remove();
+                                                    });
+                                                }, 5000);
+                                            </script>
+                                            <!-- END -->
                                             <div class="form-group row">
                                                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
