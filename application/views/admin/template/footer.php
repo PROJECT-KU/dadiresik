@@ -37,8 +37,9 @@
                     </div>
                 </div>
             </div>
+            <!-- end -->
 
-            <!-- Bootstrap core JavaScript-->
+            <!-- data tabel search jquery -->
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
             <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -54,13 +55,8 @@
                     $('#inbox').DataTable();
                 });
             </script>
-
-            <!-- Core plugin JavaScript-->
             <script src="<?= base_url('assets/sb/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-            <!-- Custom scripts for all pages-->
             <script src="<?= base_url('assets/sb/'); ?>js/sb-admin-2.min.js"></script>
-
             <script>
                 $('.custom-file-input').on('change', function() {
                     let fileName = $(this).val().split('\\').pop();
@@ -85,6 +81,7 @@
 
                 });
             </script>
+            <!-- end -->
 
             </body>
 

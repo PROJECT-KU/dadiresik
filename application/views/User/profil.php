@@ -144,7 +144,7 @@ if ($err) {
                                                         <div>
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input type="checkbox" required>Saya yakin <a href="#">untuk mengganti password</a>
+                                                                    <input style="margin-right: 5px;" type="checkbox" required>Saya yakin <a href="#">untuk mengganti password</a>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -268,7 +268,7 @@ if ($err) {
                                                 <div>
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
+                                                            <input style="margin-right: 5px;" type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
                                                         </label>
                                                     </div>
                                                 </div>

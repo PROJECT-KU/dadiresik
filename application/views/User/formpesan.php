@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
+                                                <input style="margin-right: 5px;" type="checkbox" required>Saya menyetujui <a href="#">syarat dan ketentuan</a>
                                             </label>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                                 <!-- this row will not appear when printing -->
                                 <div class="row no-print">
                                     <div class="col-12">
-                                        <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                                        <a href="<?php echo base_url('formpesan/print') ?>" rel="noopener" target="_blank" class="btn btn-warning" value="Reload" onClick="document.location.reload(true)"><i class="fas fa-print"></i> Print</a>
                                         <button type="submit" class="btn btn-success float-right" id="submitbutton"><i class="far fa-credit-card"></i>
                                             Submit Payment
                                         </button>

@@ -156,13 +156,15 @@
                                                     <div>
                                                         <div class="row">
                                                             <div class="col-12 table-responsive">
-                                                                <table class="table table-striped">
+                                                                <table class="table table-striped table-bordered" id="example">
                                                                     <form action="<?= base_url('formpesan/checkout') ?>" method="POST">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>No</th>
                                                                                 <th>ID Order</th>
-                                                                                <th>Barang</th>
+                                                                                <th>Nama Barang</th>
+                                                                                <th>Tanggal Pemesanan</th>
+                                                                                <th>Jam Pemesanan</th>
                                                                                 <th>Harga</th>
                                                                                 <th>Status</th>
                                                                             </tr>
@@ -179,6 +181,8 @@
                                                                                         <td><?= $no ?></td>
                                                                                         <td> <?= $p['id_pemesanan'] ?></td>
                                                                                         <td> <?= $p['nama_brg'] ?></td>
+                                                                                        <td> <?= $p['tanggal']; ?></td>
+                                                                                        <td> <?= $p['waktu']; ?></td>
                                                                                         <td> <?= $p['harga'] ?></td>
                                                                                         <?php if ($p['status'] == 1) : ?>
                                                                                             <td> <span class="badge bg-success">Confirm</span></td>
@@ -204,7 +208,9 @@
                                                                         <tr>
                                                                             <th>No</th>
                                                                             <th>ID Order</th>
-                                                                            <th>Barang</th>
+                                                                            <th>Nama Barang</th>
+                                                                            <th>Tanggal Pemesanan</th>
+                                                                            <th>Jam Pemesanan</th>
                                                                             <th>Harga</th>
                                                                             <th>Status</th>
                                                                         </tr>
@@ -221,6 +227,8 @@
                                                                                     <td><?= $no ?></td>
                                                                                     <td> <?= $p['id_pemesanan'] ?></td>
                                                                                     <td> <?= $p['nama_brg'] ?></td>
+                                                                                    <td> <?= $p['tanggal']; ?></td>
+                                                                                    <td> <?= $p['waktu']; ?></td>
                                                                                     <td> <?= $p['harga'] ?></td>
                                                                                     <?php if ($p['status'] == 1) : ?>
                                                                                         <td> <span class="badge bg-success">Confirm</span></td>
@@ -246,7 +254,9 @@
                                                                         <tr>
                                                                             <th>No</th>
                                                                             <th>ID Order</th>
-                                                                            <th>Barang</th>
+                                                                            <th>Nama Barang</th>
+                                                                            <th>Tanggal Pemesanan</th>
+                                                                            <th>Jam Pemesanan</th>
                                                                             <th>Harga</th>
                                                                             <th>Status</th>
                                                                         </tr>
@@ -264,6 +274,8 @@
                                                                                     <td><?= $no ?></td>
                                                                                     <td> <?= $p['id_pemesanan'] ?></td>
                                                                                     <td> <?= $p['nama_brg'] ?></td>
+                                                                                    <td> <?= $p['tanggal']; ?></td>
+                                                                                    <td> <?= $p['waktu']; ?></td>
                                                                                     <td> <?= $p['harga'] ?></td>
 
                                                                                     <td> <span class="badge bg-danger text-light">Di Batalkan</span></td>
@@ -302,7 +314,7 @@
 
 
                                         </form>
-                                        <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-success float-right"><i class="fas fa-print"></i> Print</a>
+                                        <!--<a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-success float-right"><i class="fas fa-print"></i> Print</a>-->
                                     </div>
                                 </div>
                             </div>

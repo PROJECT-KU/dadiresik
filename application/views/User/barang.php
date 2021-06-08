@@ -108,7 +108,7 @@
                                             Xtra-Large
                                         </label>
                                     </div>-->
-<h1><?= $brg['nama_brg']; ?></h1>
+                                    <h1><?= $brg['nama_brg']; ?></h1>
                                     <div class="bg-gray py-2 px-3 mt-4">
                                         <h2 class="mb-0">
                                             Rp. <?= $brg['harga']; ?>

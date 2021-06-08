@@ -23,6 +23,24 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/user/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/user/plugins/summernote/summernote-bs4.min.css">
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url('assets/sb/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/af-2.3.7/datatables.min.js"></script>
+    <!--<script type="text/javascript" src="<?= base_url('assets/sb/'); ?> vendor/jquery/jquery.js"></script>-->
+    <!--<script type="text/javascript" src="<?= base_url('assets/datatable/'); ?>datatable/js/jquery.dataTables.js"></script>-->
+    <!--<script type="text/javascript" src="<?= base_url('assets/datatable/'); ?>datatable/js/jquery.dataTables.min.js defer"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatable/'); ?>css/bootstrap.css">-->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatable/'); ?>datatable/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatable/'); ?>datatable/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatable/'); ?>datatable/css/dataTables.bootstrap4.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js defer"></script>
 </head>
 
 
@@ -88,6 +106,7 @@
         });
     });
 </script>
+<!-- end -->
 <!-- ckeditor -->
 <script src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="<?= base_url(); ?>assets/sweat/package/dist/sweetalert2.all.min.js"></script>
@@ -128,3 +147,50 @@
 <script src="<?= base_url(); ?>assets/user/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url(); ?>assets/user/dist/js/pages/dashboard.js"></script>
+
+
+
+
+<!-- data tabel search jquery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<!--<script src="<?= base_url('assets/sb/'); ?>vendor/jquery/jquery.min.js"></script>-->
+<script src="<?= base_url('assets/sb/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#inbox').DataTable();
+    });
+</script>
+<script src="<?= base_url('assets/sb/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= base_url('assets/sb/'); ?>js/sb-admin-2.min.js"></script>
+<script>
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+    $('.form-check-input').on('click', function() {
+        const menuId = $(this).data('menu');
+        const roleId = $(this).data('role');
+
+        $.ajax({
+            url: "<?= base_url('admin/changeaccess'); ?>",
+            type: 'post',
+            data: {
+                menuId: menuId,
+                roleId: roleId
+            },
+            success: function() {
+                document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
+
+            }
+        });
+
+    });
+</script>
+<!-- end -->

@@ -29,7 +29,7 @@ class Contact extends CI_Controller
     $kontak = htmlspecialchars($this->input->post('xphone', TRUE), ENT_QUOTES);
     $pesan = htmlspecialchars($this->input->post('xmessage', TRUE), ENT_QUOTES);
     $this->m_kontak->kirim_pesan($nama, $email, $kontak, $pesan);
-    echo $this->session->set_flashdata('msg', '<p><strong> NB: </strong> Terima Kasih Telah Menghubungi Kami.</p>');
+    echo $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"><img style="width:30px; heigth:30px; margin-right:5px;" src="assets/img/icon/info1.svg">Pesan Anda Telah Terkirim, Silahkan Tunggu Respon Dari Admin Kami.</div>');
     redirect('contact');
   }
 }

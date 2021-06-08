@@ -112,4 +112,22 @@ class Formpesan extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Pesanan Anda Telah Berhasil, Silahkan Tunggu Konfirmasi Dari Admin.</div>');
         redirect('invoice');
     }
+    public function print($id_brg)
+    {
+        $data['title'] = ' Form Pemesanan';
+        $data['invoice'] = $this->m_invoice->get_no_invoice();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pesan_model', 'pesan');
+        $this->load->model('Menu_model', 'menu');
+        $data['MenuUser'] = $this->menu->getMenuUser();
+        $data['barang'] = $this->db->get_where('tb_barang', ['id_brg' => $id_brg])->result_array();
+        //$data['barang'] = $this->pesan->tampilBarang();
+        $this->load->view('user/template/head', $data);
+        //$this->load->view('user/template/navbar');
+        $this->load->view('user/print', $data);
+
+        //$this->load->view('public/template/isipesanan');
+        //$this->load->view('public/template/end_content');
+        //$this->load->view('public/template/footer');
+    }
 }
