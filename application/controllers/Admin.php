@@ -71,8 +71,10 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin', $data);
         $this->load->view('admin/template/footer');
     }
+
     public function editprofile()
     {
+
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Edit Profile';
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
@@ -84,6 +86,11 @@ class Admin extends CI_Controller
             $this->load->view('admin/template/footer');
         } else {
             $name = $this->input->post('nama');
+            $hp = $this->input->post('hp');
+            $kelamin = $this->input->post('kelamin');
+            $rt = $this->input->post('rt');
+            $rw = $this->input->post('rw');
+            $alamat = $this->input->post('alamat');
             $email = $this->input->post('email');
             //cek gambar yang akan diupload
             $upload_image = $_FILES['gambar']['name'];
@@ -104,10 +111,17 @@ class Admin extends CI_Controller
                 }
             }
             $this->db->set('nama', $name);
+            $this->db->set('hp', $hp);
+            $this->db->set('kelamin', $kelamin);
+            $this->db->set('kabupaten', $kab);
+            $this->db->set('provinsi', $prov);
+            $this->db->set('rt', $rt);
+            $this->db->set('rw', $rw);
+            $this->db->set('alamat', $alamat);
             $this->db->where('email', $email);
             $this->db->update('user');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Selamat Profile anda telah berhasil diubah.</div>');
-            redirect('admin/profile');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Data Profil Anda Telah Di Perbarui.</div>');
+            redirect('admin/editprofile');
         }
     }
     public function invoices()
@@ -160,5 +174,16 @@ class Admin extends CI_Controller
         $this->m_kontak->hapus_kontak($kode);
         echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect('admin/inbox');
+    }
+    public function editpassword()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $email = $this->session->userdata('email');
+        $pass = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+        $this->db->set('password', $pass);
+        $this->db->where('email', $email);
+        $this->db->update('user');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i style="color: red; margin-right:5px;" class="fas fa-info"></i>Password Anda Telah Di Perbarui.</div>');
+        redirect('admin/editprofile');
     }
 }

@@ -72,7 +72,7 @@
                 ?>
                         <li class="nav-item menu-open has-treeview">
                             <a href="<?= base_url($mm['url']) ?>" class="nav-link active">
-                                <i class="$mm['icon']"></i>
+                                <i class="<?= $mm['icon']; ?>"> </i>
                                 <p>
                                     <?= $mm['title'] ?>
                                     <!--<i class="right fas fa-angle-left"></i>-->
@@ -82,7 +82,7 @@
                     <?php else : ?>
                         <li class="nav-item">
                             <a href="<?= base_url($mm['url']) ?>" class="nav-link">
-                                <i class="$mm['icon']"></i>
+                                <i class="<?= $mm['icon']; ?>"> </i>
                                 <p>
                                     <?= $mm['title'] ?>
                                     <!--<span class=" right badge badge-danger">New</span>-->
