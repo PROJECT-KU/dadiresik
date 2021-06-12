@@ -103,6 +103,7 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-info" role="alert">Anda Telah Berhasil Logout</div>');
         redirect('auth/index');
     }
+<<<<<<< HEAD
 
     public function forgetPassword(){
                 $data['title'] = 'Forget Password';
@@ -221,4 +222,6 @@ class Auth extends CI_Controller
 
         
     }
+=======
+>>>>>>> 6814ad7313d80bdfa9d4ab5bc6a42af065ec3e47
 }
